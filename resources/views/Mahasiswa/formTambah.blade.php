@@ -13,7 +13,7 @@
     <table>
         <tr>
             <td>NIM</td>
-            <td><input type="text" name="nim">
+            <td><input type="text" name="nim" value="{{ old('nim') }}">
             @error('nim')
                 {{ $message }}
             @enderror
@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <td>Nama Mahasiswa</td>
-            <td><input type="text" name="nama_mhs">
+            <td><input type="text" name="nama_mhs" value="{{ old('nama_mhs') }}">
             @error('nama_mhs')
                 {{ $message }}
             @enderror
@@ -29,11 +29,11 @@
         </tr>
         <tr>
             <td>Alamat</td>
-            <td><input type="text" name="alamat"></td>
+            <td><input type="text" name="alamat" value="{{ old('alamat') }}"></td>
         </tr>
         <tr>
             <td>IPK</td>
-            <td><input type="text" name="ipk"></td>
+            <td><input type="text" name="ipk" value="{{ old('ipk') }}"></td>
         </tr>
         <tr>
             <td colspan=2>

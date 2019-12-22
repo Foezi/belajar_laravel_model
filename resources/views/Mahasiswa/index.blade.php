@@ -14,7 +14,9 @@
     @endif
     <ul>
     @foreach($mahasiswa as $mhs)
-        <li>{{ $mhs->nama_mhs }} <a href="/detail/{{ $mhs->nim }}"> Detail </a> <a href="/hapus/{{ $mhs->nim }}"> Hapus </a></li>
+        <li>{{ $mhs->nama_mhs }} <a href="/detail/{{ $mhs->nim }}"> Detail </a> 
+        <a href="/edit/{{ $mhs->nim }}"> Edit </a>
+        <a href="/hapus/{{ $mhs->nim }}"> Hapus </a></li>
     @endforeach
     </ul>
 </body>
