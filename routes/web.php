@@ -13,6 +13,6 @@
 
 Route::get('/', 'ControllerMahasiswa@index');
 Route::get('/detail/{mahasiswa}', 'ControllerMahasiswa@show');
-Route::get('/hapus/{mahasiswa}', 'ControllerMahasiswa@destroy');
+Route::delete('/hapus/{mahasiswa}', 'ControllerMahasiswa@destroy');
 Route::get('/tambahMahasiswa', 'ControllerMahasiswa@create');
 Route::post('/proseTambahMahasiswa', 'ControllerMahasiswa@store');

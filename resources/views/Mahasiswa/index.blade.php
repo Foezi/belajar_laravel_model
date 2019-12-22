@@ -9,6 +9,10 @@
 <body>
     <h1>DAFTAR MAHASISWA!</h1>
     <a href="/tambahMahasiswa">Tambah Mahasiswa</a>
+    @if(session('status-hapusMhs'))
+        {{ session('status-hapusMhs') }}
+    @endif
+
     @if(session('status'))
         {{ session('status') }}
     @endif
@@ -16,7 +20,13 @@
     @foreach($mahasiswa as $mhs)
         <li>{{ $mhs->nama_mhs }} <a href="/detail/{{ $mhs->nim }}"> Detail </a> 
         <a href="/edit/{{ $mhs->nim }}"> Edit </a>
-        <a href="/hapus/{{ $mhs->nim }}"> Hapus </a></li>
+        
+        <form action="/hapus/{{ $mhs->nim }}" method="post">
+            @method('delete')
+            @csrf
+            <input type="submit" value="Hapus">
+        </form>
+        </li>
     @endforeach
     </ul>
 </body>

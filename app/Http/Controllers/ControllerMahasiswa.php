@@ -108,6 +108,7 @@ class ControllerMahasiswa extends Controller
      */
     public function destroy(Mahasiswa $mahasiswa)
     {
-        return $mahasiswa;
+        Mahasiswa::destroy($mahasiswa->nim);
+        return redirect('/')->with('status-hapusMhs','Data dihapus.');
     }
 }
