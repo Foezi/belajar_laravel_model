@@ -25,7 +25,7 @@ class ControllerMahasiswa extends Controller
      */
     public function create()
     {
-        //
+        return view('Mahasiswa.formTambah');
     }
 
     /**
@@ -36,7 +36,34 @@ class ControllerMahasiswa extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //cek validasi form
+        $request->validate([
+            'nim' => 'required|size:10',
+            'nama_mhs' => 'required'
+        ]);
+
+        //insert dengan cara pertama
+
+        // $mhs = new Mahasiswa;
+        // $mhs->nim = $request->nim;
+        // $mhs->nama_mhs = $request->nama_mhs;
+        // $mhs->ipk = $request->ipk;
+        // $mhs->alamat = $request->alamat;
+        // $mhs->save();
+
+        // insert denganc cara kedua
+
+        // Mahasiswa::create([
+        //     'nim' => $request->nim,
+        //     'nama_mhs' => $request->nama_mhs,
+        //     'ipk' => $request->ipk,
+        //     'alamat' => $request->alamat
+        // ]);
+
+        //insert dengan cara ketiga
+        Mahasiswa::create($request->all());
+
+        return redirect('/')->with('status','Data ditambahakan!');
     }
 
     /**
@@ -47,7 +74,7 @@ class ControllerMahasiswa extends Controller
      */
     public function show(Mahasiswa $mahasiswa)
     {
-        return $mahasiswa;
+        return view('Mahasiswa.detail' , compact('mahasiswa'));
     }
 
     /**
@@ -81,6 +108,6 @@ class ControllerMahasiswa extends Controller
      */
     public function destroy(Mahasiswa $mahasiswa)
     {
-        //
+        return $mahasiswa;
     }
 }
