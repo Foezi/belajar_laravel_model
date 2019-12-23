@@ -9,7 +9,7 @@
 <body>
     <h1>Form Input Data Mahasiswa!</h1>
     <form action="/proseEditMahasiswa/{{ $mahasiswa->nim }}" method="post">
-    @method('patch')
+    @method('put')
     @csrf
     <table>
         <tr>

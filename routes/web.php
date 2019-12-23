@@ -17,4 +17,4 @@ Route::delete('/hapus/{mahasiswa}', 'ControllerMahasiswa@destroy');
 Route::get('/tambahMahasiswa', 'ControllerMahasiswa@create');
 Route::post('/proseTambahMahasiswa', 'ControllerMahasiswa@store');
 Route::get('/edit/{mahasiswa}','ControllerMahasiswa@edit');
-Route::patch('/proseEditMahasiswa/{mahasiswa}','ControllerMahasiswa@update');
+Route::put('/proseEditMahasiswa/{mahasiswa}','ControllerMahasiswa@update');
