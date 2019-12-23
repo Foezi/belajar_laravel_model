@@ -85,7 +85,7 @@ class ControllerMahasiswa extends Controller
      */
     public function edit(Mahasiswa $mahasiswa)
     {
-        //
+        return view('Mahasiswa.formEdit' , compact('mahasiswa'));
     }
 
     /**
@@ -96,8 +96,15 @@ class ControllerMahasiswa extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
-    {
-        //
+    {        
+        Mahasiswa::where('nim',$mahasiswa->nim)
+        ->update([
+            'nim' => $request->nim,
+            'nama_mhs' => $request->nama_mhs,
+            'alamat' => $request->alamat,
+            'ipk' => $request->ipk,
+        ]);
+        return redirect('/')->with('status','Data diubah!');
     }
 
     /**
@@ -109,6 +116,6 @@ class ControllerMahasiswa extends Controller
     public function destroy(Mahasiswa $mahasiswa)
     {
         Mahasiswa::destroy($mahasiswa->nim);
-        return redirect('/')->with('status-hapusMhs','Data dihapus.');
+        return redirect('/')->with('status','Data dihapus.');
     }
 }

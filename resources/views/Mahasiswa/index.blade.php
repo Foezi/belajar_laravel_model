@@ -9,10 +9,6 @@
 <body>
     <h1>DAFTAR MAHASISWA!</h1>
     <a href="/tambahMahasiswa">Tambah Mahasiswa</a>
-    @if(session('status-hapusMhs'))
-        {{ session('status-hapusMhs') }}
-    @endif
-
     @if(session('status'))
         {{ session('status') }}
     @endif
